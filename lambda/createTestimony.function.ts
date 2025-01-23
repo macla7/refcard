@@ -12,7 +12,7 @@ const client = new DynamoDBClient({});
 
 const dynamo = DynamoDBDocumentClient.from(client);
 
-const tableName = "Items";
+const tableName = "Testimonies";
 
 export const handler = async (event: any, context: any) => {
   let body;
@@ -23,7 +23,7 @@ export const handler = async (event: any, context: any) => {
 
   try {
     switch (event.routeKey) {
-      case "DELETE /items/{id}":
+      case "DELETE /testimonies/{id}":
         await dynamo.send(
           new DeleteCommand({
             TableName: tableName,
@@ -34,7 +34,7 @@ export const handler = async (event: any, context: any) => {
         );
         body = `Deleted item ${event.pathParameters.id}`;
         break;
-      case "GET /items/{id}":
+      case "GET /testimonies/{id}":
         body = await dynamo.send(
           new GetCommand({
             TableName: tableName,
@@ -45,11 +45,11 @@ export const handler = async (event: any, context: any) => {
         );
         body = body.Item;
         break;
-      case "GET /items":
+      case "GET /testimonies":
         body = await dynamo.send(new ScanCommand({ TableName: tableName }));
         body = body.Items;
         break;
-      case "PUT /items":
+      case "PUT /testimonies":
         let requestJSON = JSON.parse(event.body);
         await dynamo.send(
           new PutCommand({

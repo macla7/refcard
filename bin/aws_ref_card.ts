@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import * as cdk from "aws-cdk-lib";
-import { AwsRefCardStack } from "../lambda/createItem-stack";
+import { AwsRefCardStack } from "../lib/aws-ref-card-stack";
 
 const app = new cdk.App();
 new AwsRefCardStack(app, "AwsRefCardStack", {
