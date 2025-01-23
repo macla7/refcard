@@ -21,6 +21,9 @@ export class CreateItem extends Construct {
     });
 
     const createItemFunction = new NodejsFunction(this, "function", {
+      runtime: lambda.Runtime.NODEJS_18_X,
+      handler: "handler",
+      entry: "./lambda/createItem.function.ts",
       environment: {
         USERS_TABLE_NAME: itemsTable.tableName,
       },

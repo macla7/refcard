@@ -7,7 +7,7 @@ import * as apigateway from "aws-cdk-lib/aws-apigateway";
 import * as dynamodb from "aws-cdk-lib/aws-dynamodb";
 import { NodejsFunction } from "aws-cdk-lib/aws-lambda-nodejs";
 import { LambdaRestApi } from "aws-cdk-lib/aws-apigateway";
-import { CreateItem } from "./createItem";
+import { CreateItem } from "../lib/createItem";
 
 export class AwsRefCardStack extends cdk.Stack {
   constructor(scope: Construct, id: string, props?: cdk.StackProps) {
